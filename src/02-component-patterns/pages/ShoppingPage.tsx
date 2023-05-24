@@ -1,5 +1,4 @@
 import { ProductButtons, ProductCard, ProductImage, ProductTitle } from '../components';
-import '../styles/custom-styles.css';
 
 import { products } from '../data/products';
 
@@ -13,7 +12,6 @@ export const ShoppingPage = () => {
         <hr />
           <ProductCard
           key={ product.id}
-          className='bg-dark text-white'
           product = { product }
           initialValues={{
             count: 4,
@@ -21,19 +19,13 @@ export const ShoppingPage = () => {
           }}
           >
             {
+              // eslint-disable-next-line @typescript-eslint/no-unused-vars
               ( { count, reset, increaseBy, maxCount, isMaxCountReached  } ) => (
                 <>
-                  <ProductImage className='custom-image' style={{ boxShadow: '10px 10px 10px rgba(0,0,0,0.2)' }}/>
-                  <ProductTitle className=' text-bold'/>
-                  <ProductButtons className='custom-buttons' />
-                  <button onClick={ reset }>Reset</button>
-                  <button onClick={ () => increaseBy( -2 ) }> -2 </button>
-                  {/* Si no se llega al isMaxCount, ocultar */}
-                  {
-                    ( !isMaxCountReached && <button onClick={ () => increaseBy( 2 ) }> +2 </button> )
-                  }
+                  <ProductImage />
+                  <ProductTitle />
+                  <ProductButtons />
                   
-                  <span>{ count } - { maxCount }</span>
                 </>
               )
             }
