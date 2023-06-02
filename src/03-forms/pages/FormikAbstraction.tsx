@@ -33,7 +33,7 @@ export const FormikAbstraction = () => {
                     email: Yup.string()
                                 .email('el correo no tiene un formato válido')
                                 .required('Requerido'),
-                                terms: Yup.boolean()
+                    terms: Yup.boolean()
                                 .oneOf([true],'Debe de aceptar los términos'),
                     jobType: Yup.string()
                                   .notOneOf([ 'it-jr' ], 'Opción no permitida')  
